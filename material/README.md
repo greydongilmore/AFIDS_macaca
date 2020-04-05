@@ -6,13 +6,11 @@ Preparation
 
 Naming Scheme for Fiducial Files
 --------------------------------
-* [VolumeID]_[Contrast]_[Rater]_[N] (e.g. MNI2009b_T1_JL_1_20170511.fcsv)
+* [VolumeID]_[Contrast]_[Rater]_[N] (e.g. macaque25modelMNI_T1_JL_1_20170511.fcsv)
 
-  * **[VolumeID]** = the identifier for the volume on which you are performing the fiducial placements; for the tutorial it will be one of the well known MRI templates:
-    * Colin27: average of 27 Colin brains
-    * MNI2009b: average of 152 healthy controls 
-    * Agile12v1.0: average of 12 healthy controls at 7T
-  * **[Contrast]** = T1, T2, PD, other (typically will be T1)
+  * **[VolumeID]** = the identifier for the volume on which you are performing the fiducial placements; for the tutorial it will be a well known macaque MRI templates:
+    * Colin27: average of 25 adult macaque monkeys (18 Macaca Fascicularis, 7 Macaca Mulatta)
+  * **[Contrast]** = T1
   * **[Rater]** = the unique identifier for the rater performing the fiducial placement; convention will be first initial and last name to prevent overlap
   * **[N]** = reference for fiducial placement session (helpful if performing placements more than once; starting with 1)
   * **[YYYYMMDD]** = year month and date
@@ -39,7 +37,7 @@ To create a new AC-PC Transform you must place AC and PC fiducial markers in pre
 7. Click apply at the bottom of the window
 8. Next under modules go to Data. Beside the image volume select the ‘eye’ icon to turn the volume back on.
 9. Next under Modules go to Transforms and under Active Transform dropdown tab select the create Output transform (if not already selected). 
-10. Under Apply Transform select all 4 items (i.e MNI2009b_T1w_GGl_20190801, ACPC, Midline and FID32) and transfer them to the transformed side. 
+10. Under Apply Transform select all 4 items (i.e macaque25modelMNI_T1w_GGl_20190801, ACPC, Midline and FID32) and transfer them to the transformed side. 
 
 
 General Fiducial Placement Strategies
@@ -64,11 +62,13 @@ structure in the corresponding Description textbox:
 
 When placing the fiducials make sure you are on the **Fid32_[VolumeID]_[Rater]_[N]** markup list. Click on **midline** and copy over AC, PC along with the other points to your FID32 list by selecting all fiducials, right click and choosing "Copy”. Select **Fid32_[VolumeID]_[Rater]_[N]**. Place each of the **fiducials** in the markups list entering the associated fiducial number in **Name** and enter the **underlined** name in the **Description textbox**.
 
+To help with monitoring the current location of the pointer, toggle on the **Slice intersection** under **Toggle crosshair visibility**.
+
 ----------------------------
 
 ### **1. AC [midline]**
 
-  * Place at the center of the commissure
+  * Place at the center of the commissure. 
   * **Name:** 1
   * **Description:** AC
   
@@ -105,7 +105,7 @@ When placing the fiducials make sure you are on the **Fid32_[VolumeID]_[Rater]_[
 
 ### **4. Pontomesencephalic junction [midline]**
 
-  * At the junction but because the junction tapers off gradually, choose the ventral/inferior/pontine side of the junction using the sagittal and coronal views
+  * At the intraventricular junction but because the junction tapers off gradually, choose the ventral/inferior/pontine side of the junction. Using the sagittal view, find the junction at midline, next verify that you are at the junction by checking the axial view.
   * **Name:** 4
   * **Description:** PMJ
 
@@ -131,6 +131,7 @@ When placing the fiducials make sure you are on the **Fid32_[VolumeID]_[Rater]_[
 
 ### **6. Right superior lateral mesencephalic sulcus**
 
+  * Start at sagittal slices at the posterior boundry of PC.
   * Localize using axial slices; at boundary of CSF and brain
   * Use the coronal and sagittal views to optimize the location so that this point is in the angle created in all views
   * **Name:** 6
@@ -156,7 +157,9 @@ When placing the fiducials make sure you are on the **Fid32_[VolumeID]_[Rater]_[
 
 ### **8. Right inferior lateral mesencephalic sulcus**
 
-  * Localize at junction between midbrain and pons first using axial slices
+  * Start at sagittal slices at the posterior boundry of PC.
+  * Using axial section, level the slice intersection to the Pontomesencephalic Junction(3rd fiducial)
+  * Localize at junction between midbrain and pons using axial slices
   * Refine positioning using sagittal view (at the change in angle of brainstem at the PMJ)
   * **Name:** 8
   * **Description:** R inferior LMS
@@ -183,6 +186,7 @@ When placing the fiducials make sure you are on the **Fid32_[VolumeID]_[Rater]_[
 
   * Jump to AC or another midline AFID to get to the mid-sagittal slice, then place using the sagittal view
   * Most superior point of cerebellar vermis; one of the vermian lobules
+  * Axial view will allow you to choose the most superior part of the vermis; Scroll through this view while remaining in midline until you reach the apex. 
   * **Name:** 10
   * **Description:** Culmen
 
@@ -195,7 +199,8 @@ When placing the fiducials make sure you are on the **Fid32_[VolumeID]_[Rater]_[
 ### **11. Intermammillary sulcus [midline]**
 
   * Click to jump to AC landmark and place using the sagittal view 
-  * Midpoint between the mamillary bodies; remember to place at the border of the grey matter
+  * Using the coronal view get to the midpoint between the mamillary bodies. 
+  * Remember to place at the border of the grey matter. Refine this using axial view where border is most clear.
   * **Name:** 11
   * **Description:** Intermammillary sulcus
 
@@ -231,7 +236,8 @@ When placing the fiducials make sure you are on the **Fid32_[VolumeID]_[Rater]_[
 
 ### **14. Pineal gland [midline]**
 
-  * Click to jump to the AC landmark on the sagittal view and place AFID in the middle of gland (use all views to correctly place this point)
+  * Click to jump to the AC landmark on the sagittal view and localize the most superior border of AC on sagittal view, then proceed to go posterior until past PC.
+  * Place AFID in the middle of gland (use all views to correctly place this point)
   * Occasionally the pineal gland is calcified, which makes it more difficult to find the center of the gland. Be sure to scroll back and forth in all views to find the true center point regardless of asymmetry of calcifications
   * **Name:** 14
   * **Description:** pineal gland
@@ -293,7 +299,8 @@ When placing the fiducials make sure you are on the **Fid32_[VolumeID]_[Rater]_[
 ### **19. Genu of corpus callosum [midline]**
 
   * Jump to AC and place using sagittal view
-  * Optimize using coronal view as most anterior point of the corpus callosum on coronal slice
+  * Optimize using coronal view as most anterior point of the corpus callosum on coronal slice.
+  * Midline vasculatures are prominent in this region. Adjusting contrast allows for differentiation between grey matter and vessels. Refine fiducial using axial view. 
   * **Name:** 19
   * **Description:** Genu of CC
 
@@ -306,7 +313,7 @@ When placing the fiducials make sure you are on the **Fid32_[VolumeID]_[Rater]_[
 ### **20. Splenium of the corpus callosum [midline]**
 
   * Jump to AC and place using sagittal view.
-  * Optimize using axial view as the inferior-most point on axial section
+  * Proceed posterior and optimize point using coronal view as the in inferior-most point on coronal section. Refine the border using axial view.
   * **Name:** 20
   * **Description:** Splenium of CC
 
@@ -318,9 +325,11 @@ When placing the fiducials make sure you are on the **Fid32_[VolumeID]_[Rater]_[
 
 ### **21. Right anterolateral temporal horn**
 
-  * Place using coronal view as the anterior-most (and lateral) point of temporal horn
-  * Choose a more ventral/inferior point on the coronal view
-  * Place at the boundary of CSF and brain
+  * Jump to AC and using sagittal view locate the posterior border of AC.
+  * Navigate laterally using sagittal view and locate anterior-most (and lateral) point of temporal horn.
+  * Choose a more ventral/inferior point on the coronal view.
+  * In the coronal view this fiducial should be inferior lateral of the amygdala, while in the sagittal view it is anterior to hippocampus seperated by lateral ventricle.
+  * Place at the boundary of CSF and white matter
   * **Name:** 21
   * **Description:** R AL temporal horn
 
@@ -345,7 +354,8 @@ When placing the fiducials make sure you are on the **Fid32_[VolumeID]_[Rater]_[
 ### **23. Right superior AM temporal horn**
 
   * alias: Rhoton's right uncal recess
-  * At the superior hippocampal-amygdalar transition area (HATA)
+  * Jump to AC, proceeding posterior while monitoring sagittal view until slice intersection is touching posterior of hypothalamus or anterior of the brainstem in sagittal view.
+  * Proceed lateral while monitoring the coronal view. Place fiducial at the superior hippocampal-amygdalar transition area (HATA). Verify in the axial view.
   * NOTE: there is also an inferior anteromedial temporal horn
   * Rhoton's uncal recess:
     * "narrow medially projecting space between hippocampal head & ventricular surface of amygdala located lateral to uncal apex")
@@ -374,9 +384,9 @@ When placing the fiducials make sure you are on the **Fid32_[VolumeID]_[Rater]_[
 
 ### **25. Right inferior AM temporal horn**
 
-  * Initially place using coronal view
-  * Jump to 21 (right AL temporal horn) and scroll to find the most medial (and anterior) showing of the CSF
-  * Optimize using the axial view again to find the most anteromedial showing of the CSF
+  * Jump to center of AC. Scrolling posterior while monitoring sagittal view, place pointer in the CSF in between AC and the Thalamus. Verify in the axial view that the point is in center of the CSF in that view.
+  * While monitoring the coronal view, scroll laterally until the sagitall intersection reaches ventricle under the amygdaloid nuclei. The ventricle should appear in the sagittal view as a small opening at this point. 
+  * Verify that the fiducial is place at the junction of the ventricle-grey matter in the axial view. 
   * **Name:** 25
   * **Description:** R inferior AM temporal horn
 
@@ -402,7 +412,10 @@ When placing the fiducials make sure you are on the **Fid32_[VolumeID]_[Rater]_[
 ### **27. Right indusium griseum origin**
 
   * Defined on sagittal slice at takeoff from posterior hippocampus below splenium
-  * Begin on the sagittal view (make sure the view is on the right side), scroll back and forrth to find the point where the tail of the hippocampus begins to become pointed and "takeoff"
+  * * Jump to AC. In the sagittal view place the slice intersection at the posterior border of splenium in the midline.
+  * Begin on the sagittal view (make sure the view is on the right side), scroll back and forth to find the point where the tail of the hippocampus begins to become pointed and "takeoff"
+  * Verify that the fiducial is at the junction of white and grey matter.
+
   * **Name:** 27
   * **Description:** R indusium griseum origin
 
@@ -452,6 +465,9 @@ When placing the fiducials make sure you are on the **Fid32_[VolumeID]_[Rater]_[
 
 ### **31. Right olfactory sulcal fundus**
 
+  * Jump to Genu of Corpus Collosum (#17). 
+  * Ensuring the view is on the right side of the brain, scroll back and forth in the sagittal view until you find the most anterior aspect of genu on the right hemisphere. (Typically before Genu becomes continuous with other white matter structures).
+  * Monitoring the axial view proceed ventral until the fundas is reached. Verify using the coronal view.
   * Sulcal fundus = at depth of sulcus and boundary of gray matter-white matter
   * Posterior and most superior portion visible on axial slice
   * **Name:** 31
