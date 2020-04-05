@@ -4,6 +4,8 @@
 
 * Adaptation of the AFIDs protocol (https://github.com/afids) to macaca.
 * The original protocol for human subjects is at https://github.com/afids/afids-protocol.
+
+Join our channel on  <a href="https://mattermost.brainhack.org/brainhack/channels/afids-macaca" target="_blank"><img src="http://www.mattermost.org/wp-content/uploads/2016/03/logoHorizontal.png" width=100px /></a>
  
 Resources
 -------------
